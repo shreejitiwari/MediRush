@@ -45,7 +45,7 @@ fun AffectedAreaBack(navController: NavController) {
                 Icon(painter = painterResource(id = R.drawable.back), contentDescription = "Back")
             }
             Text(
-                text = "Choose Affected Areas (Back)",
+                text = "Choose Affected Areas",
                 fontSize = 21.sp,
                 modifier = Modifier.padding(18.dp)
             )
@@ -98,7 +98,7 @@ fun AffectedAreaBack(navController: NavController) {
         Spacer(modifier = Modifier.height(16.dp))
 
         Button(
-            onClick = { navController.navigate("formScreen") },
+            onClick = { navController.navigate("FormScreen") },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp),

@@ -38,7 +38,7 @@ import androidx.compose.ui.unit.sp
 import com.example.calleme.ui.theme.GreenPrimary
 
 @Composable
-fun formScreen(navController: NavHostController) {
+fun FormScreen(navController: NavHostController) {
     val context = LocalContext.current
 
     // Initialize Calendar inside the function
