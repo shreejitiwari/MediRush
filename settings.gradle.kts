@@ -19,5 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "MediRush"
+rootProject.name = "callEme"
 include(":app")
+ 

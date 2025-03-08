@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "792567159042",
+    "project_id": "calleme-b9091",
+    "storage_bucket": "calleme-b9091.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:792567159042:android:e7550a92e138bcfea34a1b",
+        "android_client_info": {
+          "package_name": "com.example.calleme"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDKlQK9IWeii2QCMjyGczhyQMUpXjDCww"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
