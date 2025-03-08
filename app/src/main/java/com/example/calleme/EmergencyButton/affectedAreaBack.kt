@@ -1,67 +1,3 @@
-/*package com.example.calleme.EmergencyButton
-
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
-import com.example.calleme.R
-import com.example.calleme.ui.theme.GreenPrimary
-
-@Composable
-fun AffectedAreaBack(navController: NavController) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp)
-    ) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(12.dp),
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            IconButton(onClick = { navController.popBackStack() }) {
-                Icon(painter = painterResource(id = R.drawable.back), contentDescription = "Back")
-            }
-            Text(
-                text = "Choose Affected Areas",
-                fontSize = 21.sp,
-                modifier = Modifier.padding(18.dp)
-            )
-        }
-
-        Spacer(modifier = Modifier.weight(1f))
-
-        Image(
-            painter = painterResource(id = R.drawable.back_body_part), // Back Body Image
-            contentDescription = "Back Body Parts",
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(500.dp)
-                .clickable {
-                    // Handle body part selection
-                }
-        )
-
-        Spacer(modifier = Modifier.weight(1f))
-
-        Button(
-            onClick = { navController.navigate("formScreen") }, // Navigate to form
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp),
-            colors = ButtonDefaults.buttonColors(containerColor = GreenPrimary)
-        ) {
-            Text("Next")
-        }
-    }
-}*/
 package com.example.calleme.EmergencyButton
 
 import androidx.compose.foundation.*
@@ -89,13 +25,11 @@ import com.example.calleme.ui.theme.GreenPrimary
 import androidx.compose.foundation.gestures.detectTransformGestures
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.unit.Dp
 
 @Composable
 fun AffectedAreaBack(navController: NavController) {
-    var scale by remember { mutableStateOf(1f) }
-    var offset by remember { mutableStateOf(Offset.Zero) }
-    var imageSize by remember { mutableStateOf(IntSize.Zero) }
-    var selectedPoints by remember { mutableStateOf<List<Offset>>(emptyList()) }
+    val selectedParts = remember { mutableStateListOf<String>() }
 
     Column(
         modifier = Modifier
@@ -111,61 +45,57 @@ fun AffectedAreaBack(navController: NavController) {
                 Icon(painter = painterResource(id = R.drawable.back), contentDescription = "Back")
             }
             Text(
-                text = "Choose Affected Areas",
+                text = "Choose Affected Areas (Back)",
                 fontSize = 21.sp,
                 modifier = Modifier.padding(18.dp)
             )
         }
 
-        Spacer(modifier = Modifier.weight(1f))
+        Spacer(modifier = Modifier.height(16.dp))
 
-        Box(
+        BoxWithConstraints(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(500.dp)
-                .pointerInput(Unit) {
-                    detectTransformGestures { _, pan, zoom, _ ->
-                        scale *= zoom
-                        offset = Offset(offset.x + pan.x, offset.y + pan.y)
-                    }
-                }
         ) {
+            val boxWidth = maxWidth
+            val boxHeight = maxHeight
+
             Image(
                 painter = painterResource(id = R.drawable.back_body_part),
                 contentDescription = "Back Body Parts",
-                modifier = Modifier
-                    .fillMaxSize()
-                    .graphicsLayer(
-                        scaleX = scale,
-                        scaleY = scale,
-                        translationX = offset.x,
-                        translationY = offset.y
-                    )
-                    .onGloballyPositioned { imageSize = it.size }
-                    .pointerInput(Unit) {
-                        detectTapGestures { tapOffset ->
-                            val relativeX = tapOffset.x / imageSize.width
-                            val relativeY = tapOffset.y / imageSize.height
-                            selectedPoints = selectedPoints + Offset(relativeX, relativeY)
-                        }
-                    }
+                modifier = Modifier.fillMaxSize()
             )
 
-            selectedPoints.forEach { point ->
-                Box(
-                    modifier = Modifier
-                        .offset(
-                            x = (point.x * imageSize.width).dp,
-                            y = (point.y * imageSize.height).dp
-                        )
-                        .size(20.dp)
-                        .clip(CircleShape)
-                        .background(Color.Red.copy(alpha = 0.6f))
-                )
-            }
+            // Positioning buttons based on the image labels
+            BodyPartButton("Head", 0.5f, 0.05f, boxWidth, boxHeight, selectedParts)
+            BodyPartButton("Neck", 0.5f, 0.12f, boxWidth, boxHeight, selectedParts)
+            BodyPartButton("Shoulders", 0.5f, 0.18f, boxWidth, boxHeight, selectedParts)
+            BodyPartButton("Back", 0.5f, 0.28f, boxWidth, boxHeight, selectedParts)
+            BodyPartButton("Left Arm", 0.2f, 0.35f, boxWidth, boxHeight, selectedParts)
+            BodyPartButton("Right Arm", 0.8f, 0.35f, boxWidth, boxHeight, selectedParts)
+            BodyPartButton("Buttocks", 0.5f, 0.48f, boxWidth, boxHeight, selectedParts)
+            BodyPartButton("Left Leg", 0.4f, 0.65f, boxWidth, boxHeight, selectedParts)
+            BodyPartButton("Right Leg", 0.6f, 0.65f, boxWidth, boxHeight, selectedParts)
+            BodyPartButton("Left Foot", 0.4f, 0.9f, boxWidth, boxHeight, selectedParts)
+            BodyPartButton("Right Foot", 0.6f, 0.9f, boxWidth, boxHeight, selectedParts)
         }
 
-        Spacer(modifier = Modifier.weight(1f))
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(Color.Transparent)
+                .padding(10.dp)
+        ) {
+            Text(
+                text = "Selected: ${selectedParts.joinToString(", ")}",
+                color = Color.Black
+            )
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
 
         Button(
             onClick = { navController.navigate("formScreen") },

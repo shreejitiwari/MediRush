@@ -14,7 +14,7 @@ import androidx.navigation.compose.composable
 import com.example.calleme.ui.theme.GradientBackground // Import your theme
 import com.example.calleme.ui.theme.CallEmeTheme
 import androidx.navigation.compose.rememberNavController
-import com.example.calleme.EmergencyButton.AffectedAreasScreen
+import com.example.calleme.EmergencyButton.AffectedAreaFront
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
