@@ -86,12 +86,12 @@ fun AffectedAreaBack(navController: NavController) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(Color.Black.copy(alpha = 0.5f))
+                .background(Color.Transparent)
                 .padding(10.dp)
         ) {
             Text(
                 text = "Selected: ${selectedParts.joinToString(", ")}",
-                color = Color.White
+                color = Color.Black
             )
         }
 
