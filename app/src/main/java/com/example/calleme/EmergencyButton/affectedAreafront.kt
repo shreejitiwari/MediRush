@@ -141,7 +141,11 @@ fun BodyPartButton(
                 if (name !in selectedParts) selectedParts.add(name)
                 else selectedParts.remove(name)
             },
-            modifier = Modifier.size(80.dp, 30.dp)
+            modifier = Modifier.size(80.dp, 30.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color.Black.copy(alpha = 0.2f), // Make background transparent
+                contentColor = Color.White // Text color remains visible
+            ),
         ) {
             Text(name, fontSize = 10.sp)
         }
