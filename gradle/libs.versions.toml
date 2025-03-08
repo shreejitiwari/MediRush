@@ -15,6 +15,7 @@ navigationCompose = "2.7.7"
 supbase = "2.5.0"
 coilCompose = "2.6.0"
 kotlinxSerializationJson = "1.6.0"
+media3CommonKtx = "1.5.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -42,6 +43,7 @@ kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-
 supabase-bom = { group = "io.github.jan-tennert.supabase", name = "bom", version.ref = "supabaseBom" }
 realtime-kt = { group = "io.github.jan-tennert.supabase", name = "realtime-kt" }
 postgrest-kt = { group = "io.github.jan-tennert.supabase", name = "postgrest-kt" }
+androidx-media3-common-ktx = { group = "androidx.media3", name = "media3-common-ktx", version.ref = "media3CommonKtx" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

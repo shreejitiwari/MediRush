@@ -72,6 +72,7 @@ dependencies {
     implementation ("com.google.android.gms:play-services-location:21.0.1")
     implementation("androidx.compose.material:material-icons-extended:1.5.0")
     implementation("androidx.compose.foundation:foundation:1.7.8")
+    implementation(libs.androidx.media3.common.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
