@@ -246,7 +246,7 @@ fun formScreen(navController: NavHostController) {
 
         // **Search Button**
         Button(
-            onClick = { navController.navigate("findHospitals") },
+            onClick = { navController.navigate("finddoc") },
             modifier = Modifier.fillMaxWidth(),
             colors = ButtonDefaults.buttonColors(containerColor = GreenPrimary)
         ) {

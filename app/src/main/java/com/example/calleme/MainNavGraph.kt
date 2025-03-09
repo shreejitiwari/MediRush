@@ -27,15 +27,9 @@ fun MainNavGraph(navController: NavHostController, modifier: Modifier = Modifier
         composable("home_screen") { HomeScreen(navController) }
         composable("affectedAreafront") { AffectedAreaFront(navController) }
         composable("affectedAreaBack") { AffectedAreaBack(navController) }
-        composable("formScreen") { formScreen(navController, viewModel = viewModel()) }
-        composable("finddoc") { FindDoctorsScreen(navController) } }
-        /*composable("resultScreen") { ResultScreen(navController) }
-        composable("affectedAreaScreenFront") {
-            AffectedAreaScreen(navController, viewModel = viewModel(), isFront = true)
-        }
-        composable("affectedAreaScreenBack") {
-            AffectedAreaScreen(navController, viewModel = viewModel(), isFront = false)
-        }*/
+        composable("formScreen") { formScreen(navController) }
+        composable("finddoc") { FindDoctorsScreen(navController) }
     }
 }
+
 
