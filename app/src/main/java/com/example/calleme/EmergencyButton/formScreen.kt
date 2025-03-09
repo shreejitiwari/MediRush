@@ -14,10 +14,7 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.text.*
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -35,39 +32,39 @@ import com.example.calleme.R
 import com.google.android.gms.location.*
 import java.util.*
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.calleme.ui.theme.GreenPrimary
+import com.example.calleme.viewmodel.FormViewModel
 
 @Composable
-fun formScreen(navController: NavHostController) {
+fun formScreen(navController: NavHostController, formViewModel: FormViewModel = viewModel()) {
     val context = LocalContext.current
-
-    // Initialize Calendar inside the function
     val calendar = Calendar.getInstance()
 
-    //Text Field State
-    var problemText by remember { mutableStateOf("") }
+    // Access ViewModel state
+    var problemText by formViewModel.problemText
+    var dateState by formViewModel.dateState
+    var timeState by formViewModel.timeState
+    var locationState by formViewModel.locationState
+    val filesList = formViewModel.filesList
 
-    // Date Picker State
-    val dateState = remember { mutableStateOf("dd/mm/yyyy") }
     val datePickerDialog = DatePickerDialog(
         context,
         { _, year: Int, month: Int, day: Int ->
-            dateState.value = "%02d/%02d/%d".format(day, month + 1, year) // Month is zero-based
+            formViewModel.dateState.value = "%02d/%02d/%d".format(day, month + 1, year)
         },
         calendar.get(Calendar.YEAR),
         calendar.get(Calendar.MONTH),
         calendar.get(Calendar.DAY_OF_MONTH)
     )
-    // File Picker: Allow Multiple selections
-    val filesList = remember { mutableStateListOf<Uri>() }
+
     val fileLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.GetMultipleContents()
     ) { uris ->
-        filesList.clear()
-        filesList.addAll(uris)
+        formViewModel.filesList.clear()
+        formViewModel.filesList.addAll(uris)
     }
 
-    // Microphone Permission
     val micPermissionLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.RequestPermission()
     ) { isGranted ->
@@ -76,27 +73,23 @@ fun formScreen(navController: NavHostController) {
         }
     }
 
-    // Time Picker
-    val timeState = remember { mutableStateOf("hh:mm:ss") }
     val timePickerDialog = TimePickerDialog(
         context,
         { _: TimePicker, hour: Int, minute: Int ->
-            timeState.value = String.format("%02d:%02d:00", hour, minute)
+            formViewModel.timeState.value = String.format("%02d:%02d:00", hour, minute)
         },
         calendar.get(Calendar.HOUR_OF_DAY),
         calendar.get(Calendar.MINUTE),
         true
     )
 
-    // Location Picker
     val fusedLocationProviderClient = remember { LocationServices.getFusedLocationProviderClient(context) }
-    val locationState = remember { mutableStateOf("Fetching location...") }
     val locationPermissionLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.RequestPermission()
     ) { isGranted ->
         if (isGranted) {
             getCurrentLocation(context, fusedLocationProviderClient) { location ->
-                locationState.value = location
+                formViewModel.locationState.value = location
             }
         }
     }
@@ -106,48 +99,46 @@ fun formScreen(navController: NavHostController) {
             .fillMaxSize()
             .padding(16.dp)
             .verticalScroll(rememberScrollState()),
-        //horizontalAlignment = Alignment.CenterHorizontally
-    ) { Row(
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(12.dp),
-        modifier = Modifier.fillMaxWidth()) {
-        IconButton(onClick = { navController.popBackStack() }) {
-            Icon(painter = painterResource(id = R.drawable.back), contentDescription = "Back")
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(12.dp),
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            IconButton(onClick = { navController.popBackStack() }) {
+                Icon(painter = painterResource(id = R.drawable.back), contentDescription = "Back")
+            }
+            Text(
+                text = "Fill The Form",
+                fontSize = 21.sp,
+                modifier = Modifier.padding(18.dp)
+            )
         }
-        Text(
-            text = "Fill The Form",
-            fontSize = 21.sp,
-            modifier = Modifier.padding(18.dp)
-        )
-    }
+
         // Description Field
         Text(text = "Describe your Problem")
+        Spacer(modifier = Modifier.height(5.dp))
 
-        Spacer(modifier = Modifier.height(5.dp)) // Small spacing between text and input field
-
-        // Text Input Field
         OutlinedTextField(
             value = problemText,
-            onValueChange = { problemText = it },
-            placeholder = { Text("Enter your problem...") }, // Hint text inside the textbox
+            onValueChange = { formViewModel.problemText.value = it },
+            placeholder = { Text("Enter your problem...") },
             modifier = Modifier
                 .fillMaxWidth()
-                .height(150.dp), // Adjust height for multiline input
-            singleLine = false, // Allow multiline input
+                .height(150.dp),
+            singleLine = false,
         )
 
         Spacer(modifier = Modifier.height(10.dp))
 
-        // **Audio Recording Button**
-        Button(onClick = { micPermissionLauncher.launch(Manifest.permission.RECORD_AUDIO) },colors = ButtonDefaults.buttonColors(containerColor = GreenPrimary)) {
+        Button(onClick = { micPermissionLauncher.launch(Manifest.permission.RECORD_AUDIO) }, colors = ButtonDefaults.buttonColors(containerColor = GreenPrimary)) {
             Icon(Icons.Default.Mic, contentDescription = "Add Audio Description")
             Text(" Record Audio")
         }
 
-        //DatePicker
         OutlinedTextField(
-            value = dateState.value,
-            onValueChange = {},
+            value = dateState,
+            onValueChange = { },
             label = { Text("Choose Date") },
             trailingIcon = {
                 IconButton(onClick = { datePickerDialog.show() }) {
@@ -159,10 +150,9 @@ fun formScreen(navController: NavHostController) {
 
         Spacer(modifier = Modifier.height(10.dp))
 
-        // **Time Picker**
         OutlinedTextField(
-            value = timeState.value,
-            onValueChange = {},
+            value = timeState,
+            onValueChange = { },
             label = { Text("Choose Time") },
             trailingIcon = {
                 IconButton(onClick = { timePickerDialog.show() }) {
@@ -174,10 +164,9 @@ fun formScreen(navController: NavHostController) {
 
         Spacer(modifier = Modifier.height(10.dp))
 
-        // **Location Picker**
         OutlinedTextField(
-            value = locationState.value,
-            onValueChange = {},
+            value = locationState,
+            onValueChange = { },
             label = { Text("Choose Location") },
             trailingIcon = {
                 IconButton(onClick = { locationPermissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION) }) {
@@ -189,23 +178,19 @@ fun formScreen(navController: NavHostController) {
 
         Spacer(modifier = Modifier.height(10.dp))
 
-        // **File Picker**
-        Button(onClick = { fileLauncher.launch("*/*") },colors = ButtonDefaults.buttonColors(containerColor = GreenPrimary)) {
+        Button(onClick = { fileLauncher.launch("*/*") }, colors = ButtonDefaults.buttonColors(containerColor = GreenPrimary)) {
             Icon(Icons.Default.Folder, contentDescription = "Pick Files")
             Text(" Select Files")
         }
 
         Spacer(modifier = Modifier.height(10.dp))
 
-        // **Display Selected Files**
-        // **Scrollable File List Without Pushing UI**
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(200.dp) // Set a fixed height to prevent pushing buttons
-                .border(1.dp, Color.Gray)
-                .padding(5.dp)
-                .verticalScroll(rememberScrollState()) // Make it scrollable
+        Box(modifier = Modifier
+            .fillMaxWidth()
+            .height(200.dp)
+            .border(1.dp, Color.Gray)
+            .padding(5.dp)
+            .verticalScroll(rememberScrollState())
         ) {
             Column {
                 filesList.forEachIndexed { index, uri ->
@@ -213,7 +198,7 @@ fun formScreen(navController: NavHostController) {
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(vertical = 4.dp),
-                        elevation = CardDefaults.elevatedCardElevation(defaultElevation = 4.dp) // Fix elevation error
+                        elevation = CardDefaults.elevatedCardElevation(defaultElevation = 4.dp)
                     ) {
                         Row(
                             modifier = Modifier
@@ -222,10 +207,10 @@ fun formScreen(navController: NavHostController) {
                             horizontalArrangement = Arrangement.SpaceBetween
                         ) {
                             Text(
-                                text = uri.toString().substringAfterLast("/"), // Get file name safely
+                                text = uri.toString().substringAfterLast("/"),
                                 maxLines = 1
                             )
-                            IconButton(onClick = { filesList.removeAt(index) }) { // Fix removeAt() error
+                            IconButton(onClick = { filesList.removeAt(index) }) {
                                 Icon(Icons.Default.Close, contentDescription = "Remove File", tint = Color.Red)
                             }
                         }
@@ -236,17 +221,24 @@ fun formScreen(navController: NavHostController) {
 
         Spacer(modifier = Modifier.height(10.dp))
 
-        // **Upload Files Button**
-        Button(onClick = { /* Upload Logic */ },colors = ButtonDefaults.buttonColors(containerColor = GreenPrimary)) {
+        Button(onClick = { /* Upload Logic */ }, colors = ButtonDefaults.buttonColors(containerColor = GreenPrimary)) {
             Icon(Icons.Default.CloudUpload, contentDescription = "Upload Files")
             Text(" Upload Files")
         }
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        // **Search Button**
         Button(
-            onClick = { navController.navigate("findHospitals") },
+            onClick = {
+                // Access the data from the ViewModel here
+                val problem = formViewModel.problemText.value
+                val date = formViewModel.dateState.value
+                val time = formViewModel.timeState.value
+                val location = formViewModel.locationState.value
+                val files = formViewModel.filesList.toList()
+                // Pass the data to your search function or navigate to the search screen
+                navController.navigate("findHospitals")
+            },
             modifier = Modifier.fillMaxWidth(),
             colors = ButtonDefaults.buttonColors(containerColor = GreenPrimary)
         ) {
@@ -274,4 +266,3 @@ fun getCurrentLocation(
         } ?: onLocationFetched("Location not found")
     }
 }
-
