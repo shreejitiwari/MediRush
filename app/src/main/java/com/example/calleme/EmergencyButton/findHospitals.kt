@@ -1,33 +1,8 @@
 package com.example.calleme.EmergencyButton
 
-/*import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.*
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
-import androidx.compose.material3.TopAppBar
-import androidx.compose.runtime.*
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.example.calleme.Database.Hospital
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.Text
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.TopAppBarDefaults
-import androidx.compose.ui.text.font.FontWeight
-import io.github.jan.supabase.auth.Auth
-import io.github.jan.supabase.createSupabaseClient
-import io.github.jan.supabase.postgrest.Postgrest
 
 
+/*
 val supabase = createSupabaseClient(
     supabaseUrl = "https://cixfdcrvjlfppyyyuufe.supabase.co",
     supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNpeGZkY3J2amxmcHB5eXl1dWZlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDEyOTQ2NjYsImV4cCI6MjA1Njg3MDY2Nn0.S5Ry8z3d7-e_kh4vLRq6k3UAFT3Oa30oSR8Ne86VeVw"
