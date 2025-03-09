@@ -230,13 +230,6 @@ fun formScreen(navController: NavHostController, formViewModel: FormViewModel = 
 
         Button(
             onClick = {
-                // Access the data from the ViewModel here
-                val problem = formViewModel.problemText.value
-                val date = formViewModel.dateState.value
-                val time = formViewModel.timeState.value
-                val location = formViewModel.locationState.value
-                val files = formViewModel.filesList.toList()
-                // Pass the data to your search function or navigate to the search screen
                 navController.navigate("findHospitals")
             },
             modifier = Modifier.fillMaxWidth(),
