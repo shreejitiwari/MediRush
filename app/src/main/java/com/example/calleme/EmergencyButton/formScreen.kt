@@ -36,6 +36,9 @@ import com.google.android.gms.location.*
 import java.util.*
 import androidx.compose.ui.unit.sp
 import com.example.calleme.ui.theme.GreenPrimary
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 @Composable
 fun FormScreen(navController: NavHostController) {
@@ -190,7 +193,7 @@ fun FormScreen(navController: NavHostController) {
         Spacer(modifier = Modifier.height(10.dp))
 
         // **File Picker**
-        Button(onClick = { fileLauncher.launch("*/*") },colors = ButtonDefaults.buttonColors(containerColor = GreenPrimary)) {
+        Button(onClick = { fileLauncher.launch("*") },colors = ButtonDefaults.buttonColors(containerColor = GreenPrimary)) {
             Icon(Icons.Default.Folder, contentDescription = "Pick Files")
             Text(" Select Files")
         }
@@ -237,7 +240,11 @@ fun FormScreen(navController: NavHostController) {
         Spacer(modifier = Modifier.height(10.dp))
 
         // **Upload Files Button**
-        Button(onClick = { /* Upload Logic */ },colors = ButtonDefaults.buttonColors(containerColor = GreenPrimary)) {
+        Button(onClick = {
+        /* Upload Logic */
+            //uploadFilesAndAudio(context, filesList)
+        }
+            ,colors = ButtonDefaults.buttonColors(containerColor = GreenPrimary)) {
             Icon(Icons.Default.CloudUpload, contentDescription = "Upload Files")
             Text(" Upload Files")
         }
@@ -246,7 +253,7 @@ fun FormScreen(navController: NavHostController) {
 
         // **Search Button**
         Button(
-            onClick = { navController.navigate("findHospitals") },
+            onClick = { navController.navigate("fetch") },
             modifier = Modifier.fillMaxWidth(),
             colors = ButtonDefaults.buttonColors(containerColor = GreenPrimary)
         ) {
@@ -274,4 +281,39 @@ fun getCurrentLocation(
         } ?: onLocationFetched("Location not found")
     }
 }
+
+/*fun uploadFilesAndAudio(context: Context, filesList: List<Uri>) {
+    CoroutineScope(Dispatchers.Main).launch {
+        val uploadedUrls = mutableListOf<String>()
+
+        for (uri in filesList) {
+            val url = SupabaseHelper.uploadFile(context, uri, "user-uploads")
+            url?.let { uploadedUrls.add(it) }
+        }
+
+        if (uploadedUrls.isNotEmpty()) {
+            saveFileMetadataToDatabase(uploadedUrls)
+        }
+    }
+}
+
+fun saveFileMetadataToDatabase(fileUrls: List<String>) {
+    val data = mapOf(
+        "problem_description" to problemText,
+        "date" to dateState.value,
+        "time" to timeState.value,
+        "location" to locationState.value,
+        "files" to fileUrls
+    )
+
+    CoroutineScope(Dispatchers.IO).launch {
+        try {
+            val response = supabase.from("user_reports").insert(data)
+            Log.d("SupabaseDB", "Data saved successfully: $response")
+        } catch (e: Exception) {
+            Log.e("SupabaseDB", "Failed to save data: ${e.message}")
+        }
+    }
+}*/
+
 

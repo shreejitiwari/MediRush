@@ -49,8 +49,27 @@ dependencies {
     implementation("com.google.android.gms:play-services-auth:20.5.0")
 
     //Supbase DATABASE
-    implementation(platform("io.github.jan-tennert.supabase:bom:3.1.2"))
-    implementation("io.github.jan-tennert.supabase:postgrest-kt:3.1.2")
+    implementation("io.ktor:ktor-client-android:2.3.3") // HTTP client for API calls
+    // Import the BOM for supabase-kt to manage versions
+    implementation(platform("io.github.jan-tennert.supabase:bom:3.1.1"))
+    // Add the specific modules you need
+    implementation("io.github.jan-tennert.supabase:auth-kt:3.1.1")
+    implementation("io.github.jan-tennert.supabase:postgrest-kt:3.1.1")
+    implementation("io.github.jan-tennert.supabase:realtime-kt:3.1.1")
+    implementation("io.github.jan-tennert.supabase:storage-kt:3.1.1")
+    //implementation("io.github.jan-tennert.supabase:gotrue-kt")
+    implementation("io.ktor:ktor-client-core:3.1.1")
+    implementation("io.ktor:ktor-client-cio:3.1.1") // CIO engine for networking
+    implementation("io.ktor:ktor-client-android:3.1.1") // Android HTTP engine
+    implementation("io.ktor:ktor-client-logging:3.1.1") // Optional: Logging for debugging
+    implementation("io.ktor:ktor-client-content-negotiation:3.1.1") // JSON handling
+    implementation("io.ktor:ktor-serialization-kotlinx-json:3.1.1") // Serialization
+    implementation("io.coil-kt:coil-compose:2.5.0") // For Images
+    //implementation("io.supabase:supabase-android:1.0.0")
+    implementation("io.ktor:ktor-client-android:3.1.1")
+    implementation("io.ktor:ktor-client-okhttp:3.1.1")
+    implementation("io.ktor:ktor-client-auth:3.1.1")
+
 
 
     implementation(libs.androidx.core.ktx)

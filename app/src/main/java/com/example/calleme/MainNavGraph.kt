@@ -5,11 +5,12 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.calleme.Database.FetchDoctorsScreen
 import com.example.calleme.EmergencyButton.AffectedAreaBack
 import com.example.calleme.EmergencyButton.AffectedAreaFront
 import com.example.calleme.EmergencyButton.FormScreen
 import com.example.calleme.EmergencyButton.HospitalFinderScreen
-import com.example.calleme.EmergencyButton.HospitalDetailsScreen
+
 
 
 @Composable
@@ -24,10 +25,7 @@ fun MainNavGraph(navController: NavHostController, modifier: Modifier = Modifier
         composable("affectedAreafront") { AffectedAreaFront(navController) }
         composable("affectedAreaBack") { AffectedAreaBack(navController) }
         composable("formScreen") { FormScreen(navController) }
-        composable("findHospitals") { HospitalFinderScreen(navController) }
-        composable("hospitalDetails/{hospitalId}") { backStackEntry ->
-            val hospitalId = backStackEntry.arguments?.getString("hospitalId") ?: ""
-            HospitalDetailsScreen(navController, hospitalId)
-        }
+        //composable("findHospitals") { HospitalFinderScreen(navController) }
+        composable("fetch") { FetchDoctorsScreen(navController) }
     }
 }
