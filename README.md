@@ -1,6 +1,6 @@
 ## 🎬 Demo Video (Private)
 
-[Watch MediRush demo here]([https://drive.google.com/file/d/VIDEO_ID/view?usp=sharing](https://www.youtube.com/shorts/CnGUmduphRM))  
+[Watch MediRush demo here](https://www.youtube.com/shorts/CnGUmduphRM)  
 *(Accessible only to project visitors)*
 
 ***
