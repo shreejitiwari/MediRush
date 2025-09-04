@@ -5,7 +5,7 @@
 
 # 🖼️ App Screenshots
 See the app screens:
-[Google Drive Screenshot Gallery]([YOUR_SCREENSHOT_DRIVE_LINK](https://drive.google.com/drive/folders/1L6s8PJVoksT0E9oWF4NUkWPNrqdgY8NL?usp=sharing))
+[Google Drive Screenshot Gallery](YOUR_SCREENSHOT_DRIVE_LINK](https://drive.google.com/drive/folders/1L6s8PJVoksT0E9oWF4NUkWPNrqdgY8NL?usp=sharing)
 
 ***
 
