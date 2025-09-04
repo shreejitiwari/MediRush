@@ -3,6 +3,10 @@
 [Watch MediRush demo here](https://www.youtube.com/shorts/CnGUmduphRM)  
 *(Accessible only to project visitors)*
 
+# 🖼️ App Screenshots
+See the app screens:
+[Google Drive Screenshot Gallery]([YOUR_SCREENSHOT_DRIVE_LINK](https://drive.google.com/drive/folders/1L6s8PJVoksT0E9oWF4NUkWPNrqdgY8NL?usp=sharing))
+
 ***
 
 # 🚑 MediRush: Automated Medical Emergency Response App
