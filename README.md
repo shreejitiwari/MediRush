@@ -59,7 +59,22 @@
 <!-- Emergency Call Screen -->
 <img src="images/11.jpg" alt="Emergency Call" width="240"/>
 <br>
-<sub><b>Emergency Call Screen</b>: Displays the in-progress call to the national emergency
+<sub><b>Emergency Call Screen</b>: Displays the in-progress call to the national emergency number (108) for immediate assistance.</sub>
+<br><br>
+
+<!-- Hospital Info -->
+<img src="images/10.jpg" alt="Hospital Info" width="240"/>
+<br>
+<sub><b>Hospital Info</b>: Shows detailed information for a selected hospital, including specialties, contact details, doctor availability, and ambulance call option.</sub>
+<br><br>
+
+<!-- Directions Screen -->
+<img src="images/9.jpg" alt="Directions Screen" width="240"/>
+<br>
+<sub><b>Directions Screen</b>: Provides turn-by-turn navigation to the selected hospital using a live map view.</sub>
+<br><br>
+
+</div>
 
 # 🖼️ App Screenshots
 See the app screens:
