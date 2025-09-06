@@ -3,78 +3,19 @@
 [Watch MediRush demo here](https://www.youtube.com/shorts/CnGUmduphRM)  
 *(Accessible only to project visitors)*
 
-***
-## 🖼️ App Screenshots
+# 🥫 Packealth: The Ingredient Scanner
 
-<div align="center">
+## 📱 App Screens & Workflow
 
-<!-- Splash Screen -->
-<img src="images/1.jpg" alt="Splash Screen" width="240"/>
-<br>
-<sub><b>Splash Screen</b>: Bright intro screen featuring the MediRush logo and hospital finder branding.</sub>
-<br><br>
-
-<!-- Login & Emergency Access -->
-<img src="images/2.jpg" alt="Login & Emergency Access" width="240"/>
-<br>
-<sub><b>Login & Emergency Access</b>: Main entry with options for logging in, signing up, or instant emergency access.</sub>
-<br><br>
-
-<!-- Body Selector (Back View) -->
-<img src="images/4.jpg" alt="Body Selector Back" width="240"/>
-<br>
-<sub><b>Body Selector (Back View)</b>: Interactive back-view body diagram—users select affected body parts to find the right hospital.</sub>
-<br><br>
-
-<!-- Body Selector (Front View) -->
-<img src="images/3.jpg" alt="Body Selector Front" width="240"/>
-<br>
-<sub><b>Body Selector (Front View)</b>: Interactive front-view body diagram for detailed symptom input and hospital matching.</sub>
-<br><br>
-
-<!-- Analysis Progress -->
-<img src="images/6.jpg" alt="Analysis Progress" width="240"/>
-<br>
-<sub><b>Analysis Progress</b>: Displays a real-time progress message as the AI processes user data.</sub>
-<br><br>
-
-<!-- Specialty Recommendation -->
-<img src="images/7.jpg" alt="Specialty Recommendation" width="240"/>
-<br>
-<sub><b>Specialty Recommendation</b>: Shows an AI-driven recommendation for the most appropriate medical specialist, with options to confirm or choose manually.</sub>
-<br><br>
-
-<!-- Emergency Patient Details -->
-<img src="images/5.jpg" alt="Emergency Patient Details" width="240"/>
-<br>
-<sub><b>Emergency Patient Details</b>: Allows users to input key emergency details, patient info, medical history, and upload files for faster triage.</sub>
-<br><br>
-
-<!-- Hospital Listing -->
-<img src="images/8.jpg" alt="Hospital Listing" width="240"/>
-<br>
-<sub><b>Hospital Listing</b>: Presents nearby hospitals with distance, details, and an option for instant ambulance calling.</sub>
-<br><br>
-
-<!-- Emergency Call Screen -->
-<img src="images/11.jpg" alt="Emergency Call" width="240"/>
-<br>
-<sub><b>Emergency Call Screen</b>: Displays the in-progress call to the national emergency number (108) for immediate assistance.</sub>
-<br><br>
-
-<!-- Hospital Info -->
-<img src="images/10.jpg" alt="Hospital Info" width="240"/>
-<br>
-<sub><b>Hospital Info</b>: Shows detailed information for a selected hospital, including specialties, contact details, doctor availability, and ambulance call option.</sub>
-<br><br>
-
-<!-- Directions Screen -->
-<img src="images/9.jpg" alt="Directions Screen" width="240"/>
-<br>
-<sub><b>Directions Screen</b>: Provides turn-by-turn navigation to the selected hospital using a live map view.</sub>
-<br><br>
-
-</div>
+<p float="left">
+  <img src="images/1.jpg" alt="Analysis Progress" width="200"/>
+  <img src="images/2.jpg" alt="Splash Screen" width="200"/>
+  <img src="images/3.jpg" alt="Home & Ingredient Insights" width="200"/>
+  <img src="images/4.jpg" alt="Camera Scanner" width="200"/>
+  <img src="images/5.jpg" alt="Nutrition Screen" width="200"/>
+  <img src="images/6.jpg" alt="Allergen Risks" width="200"/>
+  <img src="images/7.jpg" alt="Ingredient Risk Warnings" width="200"/>
+</p>
 
 # 🖼️ App Screenshots
 See the app screens:
