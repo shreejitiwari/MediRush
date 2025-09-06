@@ -8,6 +8,88 @@ See the app screens:
 [Google Drive Screenshot Gallery](https://drive.google.com/drive/folders/1L6s8PJVoksT0E9oWF4NUkWPNrqdgY8NL?usp=sharing)
 
 ***
+## 📱 App Screens & Workflow
+
+Below are screenshot highlights showing the complete MediRush user journey, from launch to emergency response and navigation.
+
+---
+
+### 1. Splash Screen
+
+![Splash Screen](images/1.jpg)  
+Bright intro screen featuring the MediRush logo and hospital finder branding.
+
+---
+
+### 2. Login & Emergency Access
+
+![Login & Emergency Access](./images/2.jpg)  
+Main entry with options for logging in, signing up, or instant emergency access.
+
+---
+
+### 3. Body Selector (Back View)
+
+![Body Selector Back](./images/4.jpg)  
+Interactive back-view body diagram—users select affected body parts to find the right hospital.
+
+---
+
+### 4. Body Selector (Front View)
+
+![Body Selector Front](./images/3.jpg)  
+Interactive front-view body diagram for detailed symptom input and hospital matching.
+
+---
+
+### 5. Analysis Progress
+
+![Analysis Progress](./images/6.jpg)  
+Displays a real-time progress message as the AI processes user data.
+
+---
+
+### 6. Specialty Recommendation
+
+![Specialty Recommendation](./images/7.jpg)  
+Shows an AI-driven recommendation for the most appropriate medical specialist, with options to confirm or choose manually.
+
+---
+
+### 7. Emergency Patient Details
+
+![Emergency Patient Details](./images/5.jpg)  
+Allows users to input key emergency details, patient info, medical history, and upload files for faster triage.
+
+---
+
+### 8. Hospital Listing
+
+![Hospital Listing](./images/8.jpg)  
+Presents nearby hospitals with distance, details, and an option for instant ambulance calling.
+
+---
+
+### 9. Emergency Call Screen
+
+![Emergency Call](./images/11.jpg)  
+Displays the in-progress call to the national emergency number (108) for immediate assistance.
+
+---
+
+### 10. Hospital Info
+
+![Hospital Info](./images/10.jpg)  
+Shows detailed information for a selected hospital, including specialties, contact details, doctor availability, and ambulance call option.
+
+---
+
+### 11. Directions Screen
+
+![Directions Screen](./images/9.jpg)  
+Provides turn-by-turn navigation to the selected hospital using a live map view.
+
+***
 
 # 🚑 MediRush: Automated Medical Emergency Response App
 
