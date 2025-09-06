@@ -8,86 +8,44 @@ See the app screens:
 [Google Drive Screenshot Gallery](https://drive.google.com/drive/folders/1L6s8PJVoksT0E9oWF4NUkWPNrqdgY8NL?usp=sharing)
 
 ***
-## 📱 App Screens & Workflow
+## 🖼️ App Screenshots
 
-Below are screenshot highlights showing the complete MediRush user journey, from launch to emergency response and navigation.
+<div align="center">
 
----
+<!-- Splash Screen -->
+<img src="images/1.jpg" alt="Splash Screen" width="270"/>
 
-### 1. Splash Screen
+<!-- Login & Emergency Access -->
+<img src="images/2.jpg" alt="Login & Emergency Access" width="270"/>
 
-![Splash Screen](images/1.jpg)  
-Bright intro screen featuring the MediRush logo and hospital finder branding.
+<!-- Body Selector (Back View) -->
+<img src="images/4.jpg" alt="Body Selector Back" width="270"/>
 
----
+<!-- Body Selector (Front View) -->
+<img src="images/3.jpg" alt="Body Selector Front" width="270"/>
 
-### 2. Login & Emergency Access
+<!-- Analysis Progress -->
+<img src="images/6.jpg" alt="Analysis Progress" width="270"/>
 
-![Login & Emergency Access](./images/2.jpg)  
-Main entry with options for logging in, signing up, or instant emergency access.
+<!-- Specialty Recommendation -->
+<img src="images/7.jpg" alt="Specialty Recommendation" width="270"/>
 
----
+<!-- Emergency Patient Details -->
+<img src="images/5.jpg" alt="Emergency Patient Details" width="270"/>
 
-### 3. Body Selector (Back View)
+<!-- Hospital Listing -->
+<img src="images/8.jpg" alt="Hospital Listing" width="270"/>
 
-![Body Selector Back](./images/4.jpg)  
-Interactive back-view body diagram—users select affected body parts to find the right hospital.
+<!-- Emergency Call Screen -->
+<img src="images/11.jpg" alt="Emergency Call" width="270"/>
 
----
+<!-- Hospital Info -->
+<img src="images/10.jpg" alt="Hospital Info" width="270"/>
 
-### 4. Body Selector (Front View)
+<!-- Directions Screen -->
+<img src="images/9.jpg" alt="Directions Screen" width="270"/>
 
-![Body Selector Front](./images/3.jpg)  
-Interactive front-view body diagram for detailed symptom input and hospital matching.
-
----
-
-### 5. Analysis Progress
-
-![Analysis Progress](./images/6.jpg)  
-Displays a real-time progress message as the AI processes user data.
-
----
-
-### 6. Specialty Recommendation
-
-![Specialty Recommendation](./images/7.jpg)  
-Shows an AI-driven recommendation for the most appropriate medical specialist, with options to confirm or choose manually.
-
----
-
-### 7. Emergency Patient Details
-
-![Emergency Patient Details](./images/5.jpg)  
-Allows users to input key emergency details, patient info, medical history, and upload files for faster triage.
-
----
-
-### 8. Hospital Listing
-
-![Hospital Listing](./images/8.jpg)  
-Presents nearby hospitals with distance, details, and an option for instant ambulance calling.
-
----
-
-### 9. Emergency Call Screen
-
-![Emergency Call](./images/11.jpg)  
-Displays the in-progress call to the national emergency number (108) for immediate assistance.
-
----
-
-### 10. Hospital Info
-
-![Hospital Info](./images/10.jpg)  
-Shows detailed information for a selected hospital, including specialties, contact details, doctor availability, and ambulance call option.
-
----
-
-### 11. Directions Screen
-
-![Directions Screen](./images/9.jpg)  
-Provides turn-by-turn navigation to the selected hospital using a live map view.
+</div>
 
 ***
 
